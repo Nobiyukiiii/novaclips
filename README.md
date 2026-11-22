@@ -2,8 +2,9 @@
 
 NovaClip Studio adalah aplikasi AI untuk mengubah video YouTube, Google Drive, atau file lokal menjadi klip pendek untuk TikTok, YouTube Shorts, dan Instagram Reels.
 
-Nama proyek: **NovaClip Studio**  
-Nama repository: **novaclips**
+Nama proyek: **NovaClip Studio**.
+
+Nama repository: **novaclips**.
 
 ## Fitur
 
