@@ -1,0 +1,100 @@
+:root {
+  /* ==========================================================================
+     NOVACLIP STUDIO - DESIGN SYSTEM TOKENS (Modern Glassmorphic Studio UI)
+     Clean, Elegant, Sophisticated SaaS Aesthetic (Linear & Apple Pro inspired)
+     ========================================================================== */
+
+  /* --- TYPOGRAPHY --- */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #f1f5f9;
+  background-color: #090d16;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* --- SURFACES (Modern Obsidian / Dark Slate) --- */
+  --bg-main: #090d16;             /* Deep slate-tinted obsidian */
+  --bg-surface: #0f172a;          /* Rich surface card background */
+  --bg-surface-elevated: #162032; /* Slightly elevated card */
+  --bg-surface-hover: #1e293b;    /* Interactive hover card surface */
+  --bg-input: #0b1120;            /* Soft dark input field background */
+
+  /* --- BORDERS & ACCENTS --- */
+  --border-color: rgba(255, 255, 255, 0.08); /* Subtle modern glass border */
+  --border-muted: rgba(255, 255, 255, 0.05); /* Muted secondary border */
+  --border-active: #6366f1;                   /* Active card border */
+  --border-glow: rgba(99, 102, 241, 0.4);
+  --border-color-glow: rgba(99, 102, 241, 0.5);
+
+  /* --- PRIMARY & BRAND ACCENTS (Electric Indigo & Violet) --- */
+  --primary: #6366f1;             /* Electric Indigo */
+  --primary-hover: #4f46e5;       /* Deep Indigo */
+  --primary-glow: rgba(99, 102, 241, 0.35);
+
+  --secondary: #8b5cf6;           /* Vibrant Violet */
+  --secondary-glow: rgba(139, 92, 246, 0.3);
+
+  /* --- SEMANTIC STATUSES & VIRALITY TIERS --- */
+  --neon-cyan: #38bdf8;           /* Sky Blue (Timestamps / Med-tier) */
+  --neon-cyan-glow: rgba(56, 189, 248, 0.35);
+
+  --neon-orange: #f59e0b;         /* Radiant Amber (High Virality) */
+  --neon-orange-glow: rgba(245, 158, 11, 0.35);
+
+  --neon-green: #10b981;          /* Emerald Green (Viral Top-tier) */
+  --neon-green-glow: rgba(16, 185, 129, 0.35);
+  --accent: #10b981;
+  --accent-glow: rgba(16, 185, 129, 0.3);
+
+  --neon-yellow: #eab308;         /* Amber Yellow */
+  --neon-yellow-glow: rgba(234, 179, 8, 0.35);
+
+  --neon-red: #f43f5e;            /* Modern Rose/Coral */
+  --neon-red-glow: rgba(244, 63, 94, 0.35);
+
+  --accent-red: #ef4444;          /* Red */
+  --accent-red-glow: rgba(239, 68, 68, 0.3);
+
+  /* --- TEXT CONTRAST TOKENS --- */
+  --text-primary: #f8fafc;        /* High contrast pure crisp white */
+  --text-secondary: #94a3b8;      /* Readable slate muted text */
+  --text-muted: #64748b;          /* Soft dim hints & labels */
+  --text-disabled: #475569;       /* Disabled text */
+
+  /* --- STATUS & ALERTS --- */
+  --status-warning: #f59e0b;
+  --status-warning-glow: rgba(245, 158, 11, 0.35);
+  --status-warning-bg: rgba(245, 158, 11, 0.1);
+  --status-success: #10b981;
+  --status-success-glow: rgba(16, 185, 129, 0.35);
+  --status-success-bg: rgba(16, 185, 129, 0.1);
+  --status-error: #ef4444;
+  --status-error-glow: rgba(239, 68, 68, 0.35);
+  --status-error-bg: rgba(239, 68, 68, 0.12);
+  --status-info: #38bdf8;
+  --status-info-glow: rgba(56, 189, 248, 0.35);
+  --status-info-bg: rgba(56, 189, 248, 0.1);
+
+  /* --- RADIUS TOKENS (Modern Smooth Curves) --- */
+  --radius-sharp: 4px;
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* --- MOTION --- */
+  --transition-fast: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
