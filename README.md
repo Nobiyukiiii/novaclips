@@ -1,76 +1,39 @@
 # NovaClip Studio
 
-NovaClip Studio adalah aplikasi AI untuk mengubah video YouTube, Google Drive, atau file lokal menjadi klip pendek yang siap dipublikasikan ke TikTok, YouTube Shorts, dan Instagram Reels.
-
-Aplikasi ini menyediakan pencarian momen viral, pemotongan video, face tracking, subtitle animasi, caption karaoke, branding, pemilihan encoder hardware, serta ekspor batch dalam format ZIP.
+NovaClip Studio adalah aplikasi AI untuk mengubah video YouTube, Google Drive, atau file lokal menjadi klip pendek untuk TikTok, YouTube Shorts, dan Instagram Reels.
 
 ## Fitur
 
 - Analisis momen viral dengan Gemini atau layanan AI yang didukung
 - Dukungan YouTube, Google Drive, dan unggahan video lokal
-- Deteksi wajah dan pemusatan subjek secara otomatis
+- Deteksi wajah serta pemusatan subjek secara otomatis
 - Rasio 9:16, 1:1, 16:9, dan layout split-screen
-- Subtitle dan caption animasi dengan beberapa pilihan font
-- Watermark, musik latar, serta efek audio
+- Subtitle animasi, caption karaoke, font, dan warna
+- Watermark, musik latar, dan efek audio
 - Hardware acceleration untuk NVIDIA, AMD, Intel, dan Apple/CPU
-- Preview, render batch, serta unduhan hasil dalam ZIP
+- Preview, render batch, dan unduhan hasil dalam ZIP
 
 ## Teknologi
 
 - Frontend: React, TypeScript, dan Vite
 - Backend: Python, FastAPI, dan FFmpeg
-- Video dan AI: OpenCV, Whisper, yt-dlp, serta provider AI
+- Video dan AI: OpenCV, Whisper, yt-dlp, dan provider AI
 
 ## Persyaratan
 
 - Git
 - Node.js 18 atau lebih baru
-- Python 3.10, 3.11, atau 3.12
+- Python 3.10–3.12
 - FFmpeg
 - yt-dlp
 
-Python 3.13 atau lebih baru belum direkomendasikan karena beberapa dependency video dan machine-learning belum menyediakan wheel yang kompatibel.
+Python 3.13 atau lebih baru belum direkomendasikan untuk dependency video dan machine-learning.
 
-### Instalasi prasyarat
-
-**Windows**
-
-```powershell
-winget install Git.Git
-winget install OpenJS.NodeJS.LTS
-winget install Python.Python.3.11
-winget install Gyan.FFmpeg
-winget install yt-dlp.yt-dlp
-```
-
-**macOS**
-
-```bash
-brew install git node python@3.11 ffmpeg-full yt-dlp
-```
-
-`ffmpeg-full` diperlukan agar FFmpeg mendukung filter subtitle berbasis libass.
-
-**Linux**
-
-```bash
-sudo apt update
-sudo apt install git nodejs npm python3 python3-venv python3-pip ffmpeg
-python3 -m pip install --user yt-dlp
-```
-
-## Instalasi lokal
-
-Clone repository dan masuk ke direktori proyek:
+## Instalasi
 
 ```bash
 git clone https://github.com/Nobiyukiiii/novaclips.git
 cd novaclips
-```
-
-Install dependency frontend:
-
-```bash
 npm install
 ```
 
@@ -94,24 +57,23 @@ pip install -r backend/requirements.txt
 
 ## Menjalankan aplikasi
 
-Dengan virtual environment aktif, jalankan frontend dan backend sekaligus:
-
 ```bash
 npm run dev
 ```
 
-Aplikasi akan tersedia di:
+Aplikasi tersedia pada:
 
 - Web app: http://localhost:27888
 - Backend API: http://localhost:27889
 - Dokumentasi API: http://localhost:27889/docs
 
-Untuk menjalankan frontend atau backend secara terpisah:
+Untuk Docker:
 
 ```bash
-npm run dev-frontend
-npm run dev-backend
+docker compose up --build
 ```
+
+Buka http://localhost:8000.
 
 ## Konfigurasi
 
@@ -129,13 +91,13 @@ Copy-Item backend\.env.template backend\.env
 cp backend/.env.template backend/.env
 ```
 
-API key Gemini dapat dimasukkan langsung melalui antarmuka aplikasi. Untuk membuat key default di server, buka https://aistudio.google.com/, buat API key, lalu isi:
+API key Gemini dapat dimasukkan melalui antarmuka aplikasi atau disetel sebagai default server:
 
 ```dotenv
 GEMINI_API_KEY=your_gemini_api_key
 ```
 
-Opsional, konfigurasi lain yang tersedia:
+Konfigurasi opsional:
 
 ```dotenv
 SUPADATA_API_KEYS=key1,key2
@@ -148,46 +110,18 @@ REQUESTS_CA_BUNDLE=/path/to/cacert.pem
 EMOJI_FONT_PATH=/path/to/NotoColorEmoji.ttf
 ```
 
-Jangan commit file `.env` atau API key nyata. Template `.env.template` tidak boleh berisi credential aktif.
-
-## Menjalankan dengan Docker
-
-Docker Compose menjalankan aplikasi produksi pada port `8000`:
-
-```bash
-docker compose up --build
-```
-
-Buka http://localhost:8000.
-
-Untuk menghentikan container:
-
-```bash
-docker compose down
-```
-
-API key dapat diteruskan melalui environment host atau file `.env`:
-
-```dotenv
-GEMINI_API_KEY=your_gemini_api_key
-SUPADATA_API_KEYS=key1,key2
-WEBSHARE_PROXY=http://user:password@host:port
-```
+Jangan commit file `.env` atau credential aktif.
 
 ## Cara penggunaan
 
-1. Masukkan URL YouTube, Google Drive, atau unggah video lokal.
-2. Pilih durasi klip, seperti sekitar 15, 30, atau 60 detik.
-3. Jalankan analisis video untuk menemukan momen yang paling menarik.
-4. Buka Clip Studio untuk mengubah rasio, crop, face tracking, subtitle, font, warna, watermark, dan audio.
+1. Masukkan URL YouTube atau Google Drive, atau unggah video lokal.
+2. Pilih durasi klip.
+3. Jalankan analisis untuk menemukan momen paling menarik.
+4. Sesuaikan rasio, crop, face tracking, subtitle, font, watermark, dan audio.
 5. Pilih encoder yang sesuai dengan perangkat.
-6. Jalankan render batch, lalu unduh klip individual atau arsip ZIP.
+6. Jalankan render batch dan unduh hasil sebagai klip individual atau ZIP.
 
-## Troubleshooting
-
-### FFmpeg atau yt-dlp tidak ditemukan
-
-Pastikan kedua executable tersedia di `PATH`.
+## FFmpeg dan yt-dlp
 
 **Windows**
 
@@ -196,13 +130,13 @@ winget install Gyan.FFmpeg
 winget install yt-dlp.yt-dlp
 ```
 
-Restart terminal setelah instalasi.
-
 **macOS**
 
 ```bash
 brew install ffmpeg-full yt-dlp
 ```
+
+`ffmpeg-full` dibutuhkan untuk filter subtitle libass.
 
 **Linux**
 
@@ -212,39 +146,9 @@ sudo apt install ffmpeg
 python3 -m pip install --user --upgrade yt-dlp
 ```
 
-### Filter subtitle tidak tersedia
+Jika YouTube meminta verifikasi bot, gunakan tombol **Cookies** dan impor cookie browser dalam format Netscape.
 
-Jika muncul pesan `No such filter: 'subtitles'`, pasang build FFmpeg yang mendukung libass:
-
-```bash
-brew install ffmpeg-full
-```
-
-Kemudian restart backend.
-
-### YouTube meminta verifikasi bot
-
-Gunakan tombol **Cookies** pada antarmuka aplikasi. Ekspor cookie YouTube dalam format Netscape dari browser yang sudah login, lalu impor atau tempel cookie melalui modal Cookies.
-
-### `pip install` gagal
-
-Gunakan Python 3.11 atau 3.12, lalu buat ulang virtual environment:
-
-**Windows**
-
-```powershell
-py -3.11 -m venv venv
-venv\Scripts\activate
-pip install -r backend/requirements.txt
-```
-
-**macOS/Linux**
-
-```bash
-python3.11 -m venv venv
-source venv/bin/activate
-pip install -r backend/requirements.txt
-```
+Jika `pip install` gagal, buat ulang virtual environment dengan Python 3.11 atau 3.12.
 
 ## Pembaruan
 
@@ -255,8 +159,6 @@ pip install -r backend/requirements.txt
 npm run dev
 ```
 
-Pastikan virtual environment Python aktif sebelum memperbarui dependency backend.
-
 ## Lisensi
 
-Repository ini dilisensikan di bawah MIT License. Lihat file [LICENSE](LICENSE).
+Dilindungi oleh [MIT License](LICENSE).
